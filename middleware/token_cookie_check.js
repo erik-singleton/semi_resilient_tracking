@@ -24,13 +24,13 @@ module.exports = function tokenCookieCheck(req, res, next) {
     }
     else if (result.fingerprint !== hashedFingerprint) {
       tokenModel.updateFingerprint(result.id, hashedFingerprint).then(function(updatedResult) {
-        req.token = updatedResult.changes[0].token;
+        req.token = result.token;
         next();
       });
     }
     else if (result.cookie !== oldCookie) {
-      tokenModel.updateCookie(result.id, newCookie).then(function(result) {
-        req.token = result.changes[0].new_val.token;
+      tokenModel.updateCookie(result.id, newCookie).then(function(updatedResult) {
+        req.token = result.token;
         res.cookie('rememberme', newCookie);
         next();
       });
