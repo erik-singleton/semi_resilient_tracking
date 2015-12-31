@@ -18,5 +18,15 @@
     "piping": "^0.3.0",
     "rethinkdb": "^2.2.1",
     "ua-parser-js": "^0.7.10"
+  },
+  "devDependencies": {
+    "bluebird": "^3.1.1",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "lodash": "^3.10.1",
+    "mocha": "^2.3.4",
+    "node-mocks-http": "^1.5.1",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
   }
 }

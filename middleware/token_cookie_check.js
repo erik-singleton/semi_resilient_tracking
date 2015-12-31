@@ -10,7 +10,7 @@ module.exports = function tokenCookieCheck(req, res, next) {
   var newCookie = uuid.v4();
   var newToken = uuid.v4();
 
-  tokenModel.fetchByCookieOrFingerprint({ cookie: oldCookie, fingerprint: hashedFingerprint }).then(function(result) {
+  return tokenModel.fetchByCookieOrFingerprint({ cookie: oldCookie, fingerprint: hashedFingerprint }).then(function(result) {
     var result = result[0];
 
     if (!result) {

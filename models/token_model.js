@@ -85,7 +85,10 @@ module.exports.fetchByFingerprint = function(fingerprint) {
 };
 
 module.exports.updateCookie = function(id, newCookie) {
-  return r.table(AUGUR_TABLE_NAME).get(id).update({ cookie: newCookie }, { returnChanges: true }).run(global._rdbConn);
+  return r.table(AUGUR_TABLE_NAME)
+    .get(id)
+    .update({ cookie: newCookie }, { returnChanges: true })
+    .run(global._rdbConn);
 };
 
 module.exports.create = function(obj) {
